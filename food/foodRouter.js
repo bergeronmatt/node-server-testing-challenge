@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/food', (req, res) => {
+router.post('/', (req, res) => {
     const newFood = req.body
     Foods.addFood(newFood)
         .then(food => {
