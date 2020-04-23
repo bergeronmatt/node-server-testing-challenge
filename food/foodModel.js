@@ -1,6 +1,6 @@
 const db = require('../data/dbConfig');
 
-function findFoods () {
+function getFoods () {
     return db('foods');
 }
 
@@ -24,7 +24,7 @@ function deleteFood(id) {
 
 module.exports = {
     findFood,
-    findFoods,
+    getFoods,
     addFood,
     deleteFood
 }
