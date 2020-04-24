@@ -6,17 +6,17 @@ const router = express.Router();
 
 
 
-router.get('/', (req, res) => {
+router.get('/foodlist', (req, res) => {
     Foods.getFoods()
     .then(foods => {
-        res.status(201).json({message: 'Rendering food list: ', foods})
+        res.status(200).json({message: 'Rendering food list: ', foods})
     })
     .catch(err => {
-        res.statu(500).json({errorMessage: 'Server error, food list not found.', err})
+        res.status(500).json({errorMessage: 'Server error, food list not found.', err})
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/foodlist', (req, res) => {
     const newFood = req.body
     Foods.addFood(newFood)
         .then(food => {
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
         })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/foodlist/:id', (req, res) => {
     const {id} = req.params;
 
     Foods.deleteFood(id)
